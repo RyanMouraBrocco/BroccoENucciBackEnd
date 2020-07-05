@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../../server').sequelize;
 
-const Image = sequelize.define('Image', {
+const ImageView = sequelize.define('ImageView', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -28,37 +28,12 @@ const Image = sequelize.define('Image', {
     content: {
         type: DataTypes.BLOB,
         allowNull: false
-    },
-    creatorId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        field: "creator_Id"
-    },
-    creationDate: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        field: "creation_date"
-    },
-    updaterId: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        field: "updater_id"
-    },
-    updateDate: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        field: "update_date"
-    },
-    deleted: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
     }
 }, {
     freezeTableName: true,
-    tableName: 'image',
+    tableName: 'image_view',
     createdAt: false,
     updatedAt: false
 });
 
-module.exports = Image;
+module.exports = ImageView;
