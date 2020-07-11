@@ -4,7 +4,7 @@ var express = require('express'),
     bodyParser = require('body-parser');
 
 const { Sequelize } = require('sequelize');
-const connectionString = require('./connectionString.jsos');
+const connectionString = require('./connectionString.json');
 
 const sequelize = new Sequelize(connectionString.database, connectionString.username, connectionString.password, {
     host: connectionString.host,

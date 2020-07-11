@@ -21,7 +21,7 @@ const ImageView = sequelize.define('ImageView', {
         type: DataTypes.DECIMAL,
         allowNull: false
     },
-    heigth: {
+    height: {
         type: DataTypes.DECIMAL,
         allowNull: false
     },

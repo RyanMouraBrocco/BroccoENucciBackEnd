@@ -21,7 +21,7 @@ const Image = sequelize.define('Image', {
         type: DataTypes.DECIMAL,
         allowNull: false
     },
-    heigth: {
+    height: {
         type: DataTypes.DECIMAL,
         allowNull: false
     },

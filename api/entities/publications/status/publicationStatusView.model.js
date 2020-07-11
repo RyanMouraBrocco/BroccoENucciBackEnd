@@ -17,7 +17,8 @@ const PublicationStatusView = sequelize.define('PublicationStatusView', {
     freezeTableName: true,
     tableName: 'publication_status_view',
     createdAt: false,
-    updatedAt: false
+    updatedAt: false,
+    underscored: true
 });
 
 module.exports = PublicationStatusView;

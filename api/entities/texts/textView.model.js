@@ -40,4 +40,6 @@ const TextView = sequelize.define('TextView', {
     updatedAt: false
 });
 
+
+
 module.exports = TextView;
