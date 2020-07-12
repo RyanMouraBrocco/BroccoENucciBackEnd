@@ -9,9 +9,13 @@ const UserView = sequelize.define('UserView', {
         autoIncrement: true,
         autoIncrementIdentity: true
     },
-    name:{
+    name: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    key: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 }, {
     freezeTableName: true,

@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../../server').sequelize;
 
-const User = sequelize.define('User', {
+const SelfView = sequelize.define('SelfView', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -30,4 +30,4 @@ const User = sequelize.define('User', {
     underscored: true
 });
 
-module.exports = User;
+module.exports = SelfView;

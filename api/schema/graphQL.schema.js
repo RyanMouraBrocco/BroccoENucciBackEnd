@@ -4,16 +4,30 @@ var schema = buildSchema(`
 scalar DateTime
 
 type Query {
-  getPublicationsStatus: [PublicationStatus]
+  getAllPublicationsStatus: [PublicationStatus],
+  getAllPublications: [Publication],
+  getPublication(id: Int!): Publication,
 }
 
 type Mutation {
+    createPublication(title: String, statusId: Int!, userId: Int!, bodies: [PublicationBodyInput]) : Publication,
+    login(email: String!, password: String!): Self
+}
+
+type Self {
+    id: Int!,
+    name: String,
+    email: String,
+    key: String,
+    typeId: Int,
+    type: UserType
 }
 
 type User {
     id: Int!,
     name: String!
     email: String!,
+    key: String,
     typeId: Int!,
     type: UserType
 }
@@ -49,6 +63,12 @@ type PublicationBody {
     publication: Publication,
     text: Text,
     image: Image
+}
+
+input PublicationBodyInput {
+    textId: Int,
+    imageId: Int,
+    order: Int
 }
 
 type PublicationFile {

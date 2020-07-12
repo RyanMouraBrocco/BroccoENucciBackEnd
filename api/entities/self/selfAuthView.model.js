@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../../server').sequelize;
 
-const User = sequelize.define('User', {
+const SelfAuthView = sequelize.define('SelfAuthView', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -9,25 +9,20 @@ const User = sequelize.define('User', {
         autoIncrement: true,
         autoIncrementIdentity: true
     },
-    name:{
+    email: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    key:{
+    password: {
         type: DataTypes.STRING,
-        allowNull: true
-    },
-    deleted: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
+        allowNull: false
     }
 }, {
     freezeTableName: true,
-    tableName: 'user',
+    tableName: 'self_auth_view',
     createdAt: false,
     updatedAt: false,
     underscored: true
 });
 
-module.exports = User;
+module.exports = SelfAuthView;

@@ -19,11 +19,31 @@ exports.sequelize = sequelize;
 var { graphqlHTTP } = require('express-graphql');
 var graphQlSchema = require('./api/schema/graphQL.schema');
 var routes = require('./routes');
-app.use('/main', graphqlHTTP({
-    schema: graphQlSchema,
-    rootValue: routes,
-    graphiql: true
-}));
+
+var auth = async function (req, res, next) {
+    const authenticator = require('./api/entities/self/self.context');
+    req.user = await authenticator.authenticate(req);
+    next();
+};
+
+app.use('/main', auth, (req, res) => {
+    graphqlHTTP({
+        schema: graphQlSchema,
+        rootValue: routes,
+        graphiql: true,
+        customFormatErrorFn: function (err) {
+            const { errorInfo } = require('./errors/errorHandling');
+            const currentErro = errorInfo[err.message];
+
+            if (currentErro != undefined) {
+                res.status(currentErro.statusCode);
+                return { Error: currentErro.message }
+            } else {
+                return err.message;
+            }
+        }
+    })(req, res);
+});
 
 app.use(function (req, res) {
     res.status(404).send({ url: req.originalUrl + ' not found' })
