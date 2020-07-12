@@ -10,7 +10,7 @@ const Text = sequelize.define('Text', {
         autoIncrementIdentity: true
     },
     size: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL,
         allowNull: false
     },
     color: {

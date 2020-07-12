@@ -10,7 +10,7 @@ const TextView = sequelize.define('TextView', {
         autoIncrementIdentity: true
     },
     size: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL,
         allowNull: false
     },
     color: {

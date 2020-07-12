@@ -1,7 +1,7 @@
 const PublicationStatusView =  require('./publicationStatusView.model');
 
 
-exports.getAll = async function (req, res) {
+exports.getAll = async function() {
     const publicationStatusList = await PublicationStatusView.findAll()
-    res.json(publicationStatusList);
+    return publicationStatusList;
 };

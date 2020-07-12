@@ -16,12 +16,14 @@ sequelize.authenticate();
 
 exports.sequelize = sequelize;
 
-// Middlewares
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
+var { graphqlHTTP } = require('express-graphql');
+var graphQlSchema = require('./api/schema/graphQL.schema');
 var routes = require('./routes');
-routes(app);
+app.use('/main', graphqlHTTP({
+    schema: graphQlSchema,
+    rootValue: routes,
+    graphiql: true
+}));
 
 app.use(function (req, res) {
     res.status(404).send({ url: req.originalUrl + ' not found' })
