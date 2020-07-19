@@ -24,7 +24,7 @@ const PublicationBody = sequelize.define('PublicationBody', {
         allowNull: true,
         field: "image_id"
     },
-    order:{
+    order: {
         type: DataTypes.INTEGER,
         allowNull: false
     },

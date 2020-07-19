@@ -9,7 +9,7 @@ module.exports = {
   // Publications endpoint
   getAllPublications: async () => await publicationsController.getAll(),
   getPublication: async (args) => await publicationsController.getById(args.id),
-  createPublication: (args) => args,
+  createPublication: async (args, req) => await publicationsController.post(args, req),
 
   //User endpoint
   login: async (args) => await selfController.login(args.email, args.password)

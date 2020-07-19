@@ -22,6 +22,11 @@ const Publication = sequelize.define('Publication', {
         type: DataTypes.DATE,
         allowNull: false
     },
+    userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        field: "user_id"
+    },
     creatorId: {
         type: DataTypes.INTEGER,
         allowNull: false,

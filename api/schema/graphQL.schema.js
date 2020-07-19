@@ -10,7 +10,7 @@ type Query {
 }
 
 type Mutation {
-    createPublication(title: String, statusId: Int!, userId: Int!, bodies: [PublicationBodyInput]) : Publication,
+    createPublication(title: String!, statusId: Int!, date: DateTime, bodies: [PublicationBodyInput]) : Publication,
     login(email: String!, password: String!): Self
 }
 
@@ -68,7 +68,7 @@ type PublicationBody {
 input PublicationBodyInput {
     textId: Int,
     imageId: Int,
-    order: Int
+    order: Int!
 }
 
 type PublicationFile {

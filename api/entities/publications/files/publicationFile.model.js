@@ -6,8 +6,8 @@ const PublicationFile = sequelize.define('PublicationFile', {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: false,
-        autoIncrementIdentity: false
+        autoIncrement: true,
+        autoIncrementIdentity: true
     },
     publicationId: {
         type: DataTypes.INTEGER,
